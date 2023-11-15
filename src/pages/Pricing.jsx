@@ -1,7 +1,7 @@
 function Pricing() {
   return (
     <div>
-      
+      pricing
     </div>
   )
 }
