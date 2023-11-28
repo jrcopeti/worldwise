@@ -35,6 +35,78 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2023-11-28T15:23:36.124Z",
+      "notes": "Hello my friend",
+      "position": {
+        "lat": 41.893332865411104,
+        "lng": 12.484533929900463
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Zagreb",
+      "country": "Croatia",
+      "emoji": "🇭🇷",
+      "date": "2023-11-28T15:28:27.121Z",
+      "notes": "malalalal",
+      "position": {
+        "lat": 45.690832836458185,
+        "lng": 15.92951524959715
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-11-28T15:35:45.539Z",
+      "notes": "hahahaha",
+      "position": {
+        "lat": 51.440312757160115,
+        "lng": -0.047053276254236394
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-11-28T15:35:45.539Z",
+      "notes": "hahahaha",
+      "position": {
+        "lat": 51.440312757160115,
+        "lng": -0.047053276254236394
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-11-28T15:35:45.539Z",
+      "notes": "hahahaha",
+      "position": {
+        "lat": 51.440312757160115,
+        "lng": -0.047053276254236394
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Dumfries",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "2023-11-28T15:41:34.544Z",
+      "notes": "llllll",
+      "position": {
+        "lat": 55.26659815231191,
+        "lng": -4.069154118983674
+      },
+      "id": 98443203
     }
   ]
 }
