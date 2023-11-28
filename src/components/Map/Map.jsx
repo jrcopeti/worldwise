@@ -14,19 +14,18 @@ import styles from "./Map.module.css";
 import { useEffect, useState } from "react";
 import useCities from "../../hooks/useCities";
 import { useGeolocation } from "../../hooks/useGeolocation";
+import { useUrlPosition } from "../../hooks/useUrlPosition";
 
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
 
-  const mapLat = Number(searchParams.get("lat"));
-  const mapLng = Number(searchParams.get("lng"));
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(
     function () {
@@ -39,14 +38,17 @@ function Map() {
     function () {
       if (geolocationPosition)
         setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
-    }, [geolocationPosition]
-  )
+    },
+    [geolocationPosition]
+  );
 
   return (
     <div className={styles.mapContainer}>
-      {!geolocationPosition &&(<Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "Use your position"}
-      </Button>)}
+      {!geolocationPosition && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use your position"}
+        </Button>
+      )}
       <MapContainer
         // center={[mapLat, mapLng]}
         center={mapPosition}
