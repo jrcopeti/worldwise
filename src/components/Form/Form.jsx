@@ -85,7 +85,6 @@ function Form() {
     await createCity(newCity);
     navigate("/app/cities");
   }
-a
   if (isLoadingGeocoding) return <Spinner />;
 
   if (!lat || !lng)
