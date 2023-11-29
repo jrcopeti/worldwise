@@ -12,7 +12,7 @@ import {
 
 import styles from "./Map.module.css";
 import { useEffect, useState } from "react";
-import useCities from "../../hooks/useCities";
+import { useCities } from "../../hooks/useCities";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useUrlPosition } from "../../hooks/useUrlPosition";
 
