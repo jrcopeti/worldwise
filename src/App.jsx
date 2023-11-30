@@ -7,7 +7,8 @@ import { Suspense, lazy } from "react";
 // import Login from "./pages/Login/Login";
 // import AppLayout from "./pages/AppLayout/AppLayout";
 // import PageNotFound from "./pages/PageNotFound/PageNotFound";
-// import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
+
+import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 
 import City from "./components/City/City";
 import CityList from "./components/CityList/CityList";
