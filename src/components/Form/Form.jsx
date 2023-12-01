@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,7 +9,7 @@ import BackButton from "../BackButton/BackButton";
 import Message from "../Message/Message";
 import Spinner from "../Spinner/Spinner";
 import styles from "./Form.module.css";
-import useCities from "../../hooks/useCities";
+import { useCities } from "../../hooks/useCities";
 import { useNavigate } from "react-router-dom";
 
 export function convertToEmoji(countryCode) {
@@ -35,7 +35,7 @@ function Form() {
 
   const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
-  useEffect(
+  useLayoutEffect(
     function () {
       if (!lat || !lng) return;
 

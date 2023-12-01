@@ -1,4 +1,4 @@
-import useCities from "../../hooks/useCities";
+import { useCities } from "../../hooks/useCities";
 
 import Spinner from "../Spinner/Spinner";
 import CountryItem from "../CountryItem/CountryItem";
