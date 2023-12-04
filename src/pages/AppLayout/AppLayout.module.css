@@ -5,3 +5,10 @@
   display: flex;
   position: relative;
 }
+
+@media only screen and (max-width: 768px) {
+  /* Styles for screens smaller than 600px */
+  .app {
+    display: block;
+  }
+}

@@ -26,3 +26,19 @@
 .nav a:global(.active) {
   background-color: var(--color-dark--0);
 }
+
+@media only screen and (max-width: 768px) {
+  /* Styles for screens smaller than 600px */
+  .nav {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .nav ul {
+
+  }
+
+  .nav a {
+    padding: 1rem 2rem;
+  }
+}
