@@ -32,3 +32,25 @@
 .product section a {
   margin-top: 2rem;
 }
+
+@media only screen and (max-width: 944px) {
+  .product section {
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, 20rem, 20rem);
+    gap: 2rem;
+    margin: 3rem auto;
+  }
+
+  .product h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+  }
+
+  .product p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}

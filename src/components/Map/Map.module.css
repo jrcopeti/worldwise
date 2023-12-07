@@ -37,11 +37,11 @@
   border-left: 5px solid var(--color-brand--2);
 }
 
-@media only screen and (max-width: 768px) {
-  /* Styles for screens smaller than 600px */
+@media only screen and (max-width: 944px) {
 
   .mapContainer
    {
+    flex: 0;
     height: 50%;
   }
 
