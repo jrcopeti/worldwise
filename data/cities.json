@@ -35,6 +35,54 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Sauzin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-12-07T23:18:53.901Z",
+      "notes": "ksdjk",
+      "position": {
+        "lat": 54.02067955159995,
+        "lng": 13.798828125000002
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Kustengewasser einschließlich Anteil am Festlandsockel",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-12-07T23:18:57.935Z",
+      "notes": "3klwrjol3",
+      "position": {
+        "lat": 54.213861000644926,
+        "lng": 12.041015625000002
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Ebstorf",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2023-12-07T23:19:11.050Z",
+      "notes": "",
+      "position": {
+        "lat": 53.028000167735165,
+        "lng": 10.437011718750002
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Township of Spring Valley",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2023-12-07T23:19:19.217Z",
+      "notes": "klkm",
+      "position": {
+        "lat": 45.089035564831036,
+        "lng": -97.73437500000001
+      },
+      "id": 98443201
     }
   ]
 }

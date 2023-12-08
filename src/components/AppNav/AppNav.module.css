@@ -27,18 +27,18 @@
   background-color: var(--color-dark--0);
 }
 
-@media only screen and (max-width: 768px) {
-  /* Styles for screens smaller than 600px */
+@media only screen and (max-width: 944px) {
   .nav {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
   }
 
   .nav ul {
-
   }
 
-  .nav a {
-    padding: 1rem 2rem;
+  .nav a:link,
+  .nav a:visited {
+    padding: 0.4rem 1.8rem;
+    font-size: 1rem;
   }
 }
