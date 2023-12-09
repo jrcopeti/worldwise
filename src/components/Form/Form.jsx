@@ -71,7 +71,7 @@ function Form() {
 
       <div className={styles.buttons}>
         <Button type="primary">Add</Button>
-        <BackButton />
+        <BackButton reason="back-form" />
       </div>
     </form>
   );
