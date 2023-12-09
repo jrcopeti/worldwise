@@ -18,6 +18,7 @@ import SpinnerFullPage from "./components/SpinnerFullPage/SpinnerFullPage";
 
 import { CitiesProvider } from "./contexts/CitiesContext";
 import { AuthProvider } from "./contexts/FakeAuthContext";
+import { FormProvider } from "./contexts/FormContext";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
 const Product = lazy(() => import("./pages/Product/Product"));
@@ -49,7 +50,15 @@ function App() {
                 <Route path="cities" element={<CityList />} />
                 <Route path="cities/:id" element={<City />} />
                 <Route path="countries" element={<CountryList />} />
-                <Route path="form" element={<Form />} />
+
+                <Route
+                  path="form"
+                  element={
+                    <FormProvider>
+                      <Form />
+                    </FormProvider>
+                  }
+                />
               </Route>
 
               <Route path="*" element={<PageNotFound />} />
