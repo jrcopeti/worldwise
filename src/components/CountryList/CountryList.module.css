@@ -10,3 +10,10 @@
   align-content: start;
   gap: 1.6rem;
 }
+
+@media only screen and (max-width: 944px) {
+  .countryList {
+    grid-template-columns: 1fr;
+    
+  }
+}

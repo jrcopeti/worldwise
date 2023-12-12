@@ -32,10 +32,10 @@
   }
 
   .row input {
-    font-size: 1.4rem;
+    font-size: 2dvh;
   }
 
   .row label {
-    font-size: 1.4rem;
+    font-size: 1.7dvh;
   }
 }

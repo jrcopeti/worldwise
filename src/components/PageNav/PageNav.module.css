@@ -45,6 +45,6 @@ a.ctaLink:visited {
 
   .nav a:link,
   .nav a:visited {
-    font-size: 1.3rem;
+    font-size: 1.6dvh;
   }
 }

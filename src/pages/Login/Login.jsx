@@ -34,6 +34,7 @@ import { useNavigate } from "react-router-dom";
           <input
             type="name"
             id="name"
+            required
             onChange={(e) => setName(e.target.value)}
             value={name}
           />

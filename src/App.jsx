@@ -1,13 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-// import Product from "./pages/Product/Product";
-// import Pricing from "./pages/Pricing/Pricing";
-// import Homepage from "./pages/Homepage/Homepage";
-// import Login from "./pages/Login/Login";
-// import AppLayout from "./pages/AppLayout/AppLayout";
-// import PageNotFound from "./pages/PageNotFound/PageNotFound";
-
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute";
 
 import City from "./components/City/City";
@@ -15,15 +8,15 @@ import CityList from "./components/CityList/CityList";
 import CountryList from "./components/CountryList/CountryList";
 import Form from "./components/Form/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage/SpinnerFullPage";
+import CitiesInCountryList from "./components/CitiesInCountryList/CitiesInCountryList";
 
 import { CitiesProvider } from "./contexts/CitiesContext";
 import { AuthProvider } from "./contexts/FakeAuthContext";
 import { FormProvider } from "./contexts/FormContext";
-import CitiesInCountryList from "./components/CitiesInCountryList/CitiesInCountryList";
 
 const Homepage = lazy(() => import("./pages/Homepage/Homepage"));
-const Product = lazy(() => import("./pages/Product/Product"));
-const Pricing = lazy(() => import("./pages/Pricing/Pricing"));
+const About = lazy(() => import("./pages/About/About"));
+const HowToUse = lazy(() => import("./pages/HowToUse/HowToUse"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const AppLayout = lazy(() => import("./pages/AppLayout/AppLayout"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
@@ -36,8 +29,8 @@ function App() {
           <Suspense fallback={<SpinnerFullPage />}>
             <Routes>
               <Route index element={<Homepage />} />
-              <Route path="product" element={<Product />} />
-              <Route path="pricing" element={<Pricing />} />
+              <Route path="about" element={<About />} />
+              <Route path="how-to-use" element={<HowToUse />} />
               <Route path="login" element={<Login />} />
               <Route
                 path="app"

@@ -36,6 +36,6 @@
 
 @media only screen and (max-width: 944px) {
   .btn {
-    font-size: 1.4rem;
+    font-size: 1.5dvh;
   }
 }

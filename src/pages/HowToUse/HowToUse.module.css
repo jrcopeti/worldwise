@@ -1,11 +1,11 @@
-.pricing {
+.howToUse {
   margin: 2.5rem;
   padding: 2.5rem 5rem;
   background-color: var(--color-dark--1);
   min-height: calc(100vh - 5rem);
 }
 
-.pricing section {
+.howToUse section {
   width: clamp(80rem, 80%, 90rem);
   margin: 6rem auto;
   display: grid;
@@ -14,27 +14,27 @@
   align-items: center;
 }
 
-.pricing img {
+.howToUse img {
   width: 100%;
 }
 
-.pricing h2 {
+.howToUse h2 {
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 3rem;
 }
 
-.pricing p {
+.howToUse p {
   font-size: 1.6rem;
   margin-bottom: 2rem;
 }
 
-.pricing section a {
+.howToUse section a {
   margin-top: 2rem;
 }
 
 @media only screen and (max-width: 944px) {
-  .pricing section {
+  .howToUse section {
     display: flex;
     flex-direction: column-reverse;
     width: clamp(20rem, 20rem, 20rem);
@@ -42,15 +42,16 @@
     margin: 3rem auto;
   }
 
-  .pricing h2 {
-    font-size: 3rem;
+  .howToUse h2 {
+    font-size: 3.2dvh;
     line-height: 1.2;
     margin-bottom: 2rem;
     margin-left: 2rem;
   }
 
-  .pricing p {
-    font-size: 1.4rem;
+  .howToUse p {
+    font-size: 2.0dvh;
     margin-bottom: 2rem;
+    margin-left: 2rem;
   }
 }

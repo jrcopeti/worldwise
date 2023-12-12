@@ -18,10 +18,14 @@ function CountryList() {
       return [...arr, { country: city.country, emoji: city.emoji }];
     else return arr;
   }, []);
+  
+
+  const sortedCountries = countries.sort((a, b) => a.country.localeCompare(b.country))
+  console.log(sortedCountries)
 
   return (
     <ul className={styles.countryList}>
-      {countries.map((country) => (
+      {sortedCountries.map((country) => (
         <CountryItem country={country} key={country.country} />
       ))}
     </ul>

@@ -46,6 +46,11 @@ function reducer(state, action) {
         isLoadingGeocoding: false,
         geocodingError: action.payload,
       };
+    case "geocoding/clear-error":
+      return {
+        ...state,
+        geocodingError: "",
+      };
 
     default:
       throw new Error(`Action type ${action.type} is not supported`);
@@ -56,7 +61,7 @@ function FormProvider({ children }) {
   const { createCity } = useCities();
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
-  const {user} = useAuth();
+  const { user } = useAuth();
   const [
     {
       isLoadingGeocoding,
@@ -73,6 +78,7 @@ function FormProvider({ children }) {
   useLayoutEffect(
     function () {
       if (!lat || !lng) return;
+      dispatch({ type: "geocoding/clear-error" });
       dispatch({ type: "geocoding/loading" });
       async function fetchCityData() {
         try {
