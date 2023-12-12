@@ -1,10 +1,10 @@
 // Uses the same styles as Product
 import PageNav from "../../components/PageNav/PageNav";
-import styles from "../Product/Product.module.css";
+import styles from "../Pricing/Pricing.module.css";
 
-export default function Product() {
+function Pricing() {
   return (
-    <main className={styles.product}>
+    <main className={styles.pricing}>
       <PageNav />
       <section>
         <div>
@@ -24,3 +24,5 @@ export default function Product() {
     </main>
   );
 }
+
+export default Pricing;

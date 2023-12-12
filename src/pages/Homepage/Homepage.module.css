@@ -32,3 +32,11 @@
   color: var(--color-light--1);
   margin-bottom: 2.5rem;
 }
+
+@media only screen and (max-width: 944px) {
+  .homepage {
+
+  }
+
+  
+}

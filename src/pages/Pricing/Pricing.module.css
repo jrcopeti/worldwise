@@ -1,0 +1,56 @@
+.pricing {
+  margin: 2.5rem;
+  padding: 2.5rem 5rem;
+  background-color: var(--color-dark--1);
+  min-height: calc(100vh - 5rem);
+}
+
+.pricing section {
+  width: clamp(80rem, 80%, 90rem);
+  margin: 6rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+
+.pricing img {
+  width: 100%;
+}
+
+.pricing h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.pricing p {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.pricing section a {
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 944px) {
+  .pricing section {
+    display: flex;
+    flex-direction: column-reverse;
+    width: clamp(20rem, 20rem, 20rem);
+    gap: 2rem;
+    margin: 3rem auto;
+  }
+
+  .pricing h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+  }
+
+  .pricing p {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+}

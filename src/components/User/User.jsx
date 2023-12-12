@@ -6,6 +6,7 @@ function User() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
+
   function handleClick() {
     logout();
     navigate("/");
@@ -13,8 +14,8 @@ function User() {
 
   return (
     <div className={styles.user}>
-      <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span>
+
+      <span>Welcome, {user}</span>
       <button onClick={handleClick}>Logout</button>
     </div>
   );

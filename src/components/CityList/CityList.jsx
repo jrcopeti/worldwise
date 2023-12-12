@@ -5,7 +5,7 @@ import styles from "./CityList.module.css";
 import { useCities } from "../../hooks/useCities";
 
 function CityList() {
-  const { cities, isLoading } = useCities();
+  const { cities, isLoading} = useCities();
 
   if (isLoading) return <Spinner />;
 

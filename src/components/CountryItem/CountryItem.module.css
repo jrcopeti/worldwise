@@ -17,3 +17,8 @@
   font-size: 3rem;
   line-height: 1;
 }
+
+.countryItem--active {
+  border: 2px solid var(--color-brand--1);
+  border-left: 5px solid var(--color-brand--1);
+}

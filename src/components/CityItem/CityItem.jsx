@@ -3,15 +3,15 @@ import styles from "./CityItem.module.css";
 import { useCities } from "../../hooks/useCities";
 
 const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
+  new Intl.DateTimeFormat("en-GB", {
     day: "numeric",
-    month: "long",
+    month: "numeric",
     year: "numeric",
   }).format(new Date(date));
 
 function CityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
-  const { cityName, emoji, date, id, position } = city;
+  const { cityName, emoji, date, id, position, user } = city;
 
   function handleClick(e) {
     e.preventDefault();
@@ -27,6 +27,7 @@ function CityItem({ city }) {
       >
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}> {cityName}</h3>
+        <span className={styles.user}>{user}</span>
         <time className={styles.date}>{formatDate(date)}</time>
         <button className={styles.deleteBtn} onClick={handleClick}>
           &times;

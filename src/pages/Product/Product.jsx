@@ -1,7 +1,7 @@
 import PageNav from "../../components/PageNav/PageNav";
 import styles from "./Product.module.css";
 
-export default function Product() {
+function Product() {
   return (
     <main className={styles.product}>
       <PageNav />
@@ -28,3 +28,5 @@ export default function Product() {
     </main>
   );
 }
+
+export default Product;

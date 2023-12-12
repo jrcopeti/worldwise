@@ -2,6 +2,7 @@ import { createContext, useLayoutEffect, useReducer } from "react";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useNavigate } from "react-router-dom";
 import { useCities } from "../hooks/useCities";
+import { useAuth } from "../hooks/useAuth";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -55,6 +56,7 @@ function FormProvider({ children }) {
   const { createCity } = useCities();
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
+  const {user} = useAuth();
   const [
     {
       isLoadingGeocoding,
@@ -114,6 +116,7 @@ function FormProvider({ children }) {
       date,
       notes,
       position: { lat, lng },
+      user,
     };
     await createCity(newCity);
     navigate("/app/cities");
@@ -133,6 +136,7 @@ function FormProvider({ children }) {
         lat,
         lng,
         navigate,
+        user,
       }}
     >
       {children}

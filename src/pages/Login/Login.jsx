@@ -6,17 +6,16 @@ import styles from "./Login.module.css";
 import PageNav from "../../components/PageNav/PageNav";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+ function Login() {
   // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const [name, setName] = useState("");
 
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (email && password) login(email, password);
+    if (name) login(name);
   }
 
   useEffect(
@@ -31,29 +30,21 @@ export default function Login() {
       <PageNav />
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="name">Name</label>
           <input
-            type="email"
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-
-        <div className={styles.row}>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
+            type="name"
+            id="name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
           />
         </div>
 
         <div>
-          <Button type="primary">Login</Button>
+          <Button type="primary">Go</Button>
         </div>
       </form>
     </main>
   );
 }
+
+export default Login;
