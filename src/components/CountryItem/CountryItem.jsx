@@ -7,12 +7,12 @@ function CountryItem({ country }) {
   console.log(currentCity, country, currentCity.country)
 
   return (
-    <li className={styles.countryItem}>
+    <li>
       <Link
         to={`${country.country}`}
-        className={`${styles.cityItem} ${
-          country === currentCity.country ? styles["countryItem--active"] : ""
-        }`}
+        className={styles.countryItem}
+
+
       >
         <span>{country.emoji}</span>
         <span>{country.country}</span>

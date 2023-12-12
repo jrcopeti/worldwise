@@ -1,25 +1,27 @@
 import { useParams } from "react-router-dom"
 import { useCities } from "../../hooks/useCities"
-import CityItem from "../CityItem/CityItem"
-import styles from "./CountryCityList.module.css"
-import CountryCityItem from "../CountryCityItem/CountryCityItem"
+import styles from "./CitiesInCountryList.module.css"
+import Spinner from "../Spinner/Spinner"
+import CitiesInCountryItem from "../CitiesInCountryItem/CitiesInCountryItem"
 
 function CountryCityList() {
- const {cities} = useCities()
+ const {cities, isLoading} = useCities()
  const {country} = useParams()
 
   const citiesInCountry = cities.filter(city => city.country === country)
   console.log(citiesInCountry)
 
+  if (isLoading) return <Spinner />;
+
   return (
-    <div>
+    <>
     <h1>Cities in {country}</h1>
-    <ul className={styles.CountryCityList}>
+    <ul className={styles.countryCityList}>
       {citiesInCountry.map((city) => (
-        <CountryCityItem city={city} key={city.id} />
+        <CitiesInCountryItem city={city} key={city.id} />
       ))}
     </ul>
-  </div>
+  </>
 );
 }
 

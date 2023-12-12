@@ -1,6 +1,6 @@
-.cityItem,
-.cityItem:link,
-.cityItem:visited {
+.countryCityItem,
+.countryCityItem:link,
+.countryCityItem:visited {
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -15,7 +15,7 @@
   text-decoration: none;
 }
 
-.cityItem--active {
+.countryCityItem--active {
   border: 2px solid var(--color-brand--2);
   border-left: 5px solid var(--color-brand--2);
 }
