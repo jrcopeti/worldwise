@@ -90,6 +90,32 @@
       },
       "user": "ddd",
       "id": 7
+    },
+    {
+      "cityName": "Saloma",
+      "country": "United States of America (the)",
+      "emoji": "🇺🇸",
+      "date": "2023-12-12T21:36:17.549Z",
+      "notes": "dddd",
+      "position": {
+        "lat": 37.43997405227057,
+        "lng": -85.51757812500001
+      },
+      "user": "ddd",
+      "id": 8
+    },
+    {
+      "cityName": "Nederweert",
+      "country": "Netherlands (the)",
+      "emoji": "🇳🇱",
+      "date": "2023-12-12T21:36:17.549Z",
+      "notes": "dddd",
+      "position": {
+        "lat": 51.28940590271679,
+        "lng": 5.800781250000001
+      },
+      "user": "ddd",
+      "id": 9
     }
   ]
 }

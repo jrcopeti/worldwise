@@ -44,7 +44,10 @@ function App() {
                 <Route path="cities" element={<CityList />} />
                 <Route path="cities/:id" element={<City />} />
                 <Route path="countries" element={<CountryList />} />
-                <Route path="countries/:country" element={<CitiesInCountryList />} />
+                <Route
+                  path="countries/:country"
+                  element={<CitiesInCountryList />}
+                />
 
                 <Route
                   path="form"

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCities } from "../../hooks/useCities";
 import styles from "./CitiesInCountryItem.module.css";
+import { useAuth } from "../../hooks/useAuth";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en-GB", {
@@ -11,8 +12,8 @@ const formatDate = (date) =>
 
 function CountryCityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
+  const { user: loginUser } = useAuth();
   const { cityName, emoji, date, id, position, user } = city;
-  console.log(currentCity, cityName)
 
   function handleClick(e) {
     e.preventDefault();
@@ -30,9 +31,11 @@ function CountryCityItem({ city }) {
         <h3 className={styles.name}> {cityName}</h3>
         <span className={styles.user}>{user}</span>
         <time className={styles.date}>{formatDate(date)}</time>
-        <button className={styles.deleteBtn} onClick={handleClick}>
-          &times;
-        </button>
+        {user === loginUser && (
+          <button className={styles.deleteBtn} onClick={handleClick}>
+            &times;
+          </button>
+        )}
       </Link>
     </li>
   );
