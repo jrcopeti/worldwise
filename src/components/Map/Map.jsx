@@ -45,7 +45,9 @@ function Map() {
     [geolocationPosition]
   );
 
-    console.log(cities.map((city)=> [city.position.lat, city.position.lng]))
+
+
+    console.log(cities.map((city)=> [city.position.lat, city.position.lng, city.id]))
 
 
   return (
