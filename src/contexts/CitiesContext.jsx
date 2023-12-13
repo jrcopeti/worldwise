@@ -1,5 +1,4 @@
-import { useCallback } from "react";
-import { createContext, useEffect, useReducer } from "react";
+import { createContext, useCallback, useEffect, useReducer } from "react";
 
 const BASE_URL = "https://api.jsonbin.io/v3";
 const BIN_ID = import.meta.env.VITE_BIN_ID;
@@ -59,19 +58,15 @@ function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(
-          `${BASE_URL}/b/${BIN_ID}`,
-          {
-            method: "GET",
-            headers: {
-              "X-Master-Key": MASTER_KEY,
-              "X-Access-Key": ACCESS_KEY,
-            },
-          }
-        );
+        const res = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+          method: "GET",
+          headers: {
+            "X-Master-Key": MASTER_KEY,
+            "X-Access-Key": ACCESS_KEY,
+          },
+        });
         const data = await res.json();
         dispatch({ type: "cities/loaded", payload: data.record.cities });
-        console.log(data);
       } catch {
         dispatch({
           type: "rejected",
@@ -87,22 +82,18 @@ function CitiesProvider({ children }) {
       if (Number(id) === currentCity.id) return;
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(
-          `${BASE_URL}/b/${BIN_ID}`,
-          {
-            method: "GET",
-            headers: {
-              "X-Master-Key": MASTER_KEY,
-              "X-Access-Key": ACCESS_KEY,
-            },
-          }
-        );
+        const res = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+          method: "GET",
+          headers: {
+            "X-Master-Key": MASTER_KEY,
+            "X-Access-Key": ACCESS_KEY,
+          },
+        });
 
         const data = await res.json();
         const city = data.record.cities.find((city) => city.id === Number(id));
 
         dispatch({ type: "city/loaded", payload: city });
-        console.log(city);
       } catch (error) {
         console.error(error);
         dispatch({
@@ -118,16 +109,13 @@ function CitiesProvider({ children }) {
     dispatch({ type: "loading" });
     try {
       // Fetch current data from the bin
-      const fetchRes = await fetch(
-        `${BASE_URL}/b/${BIN_ID}`,
-        {
-          method: "GET",
-          headers: {
-            "X-Master-Key": MASTER_KEY,
-            "X-Access-Key": ACCESS_KEY,
-          },
-        }
-      );
+      const fetchRes = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+        method: "GET",
+        headers: {
+          "X-Master-Key": MASTER_KEY,
+          "X-Access-Key": ACCESS_KEY,
+        },
+      });
 
       if (!fetchRes.ok) {
         throw new Error("Failed to fetch current data");
@@ -139,19 +127,15 @@ function CitiesProvider({ children }) {
       const updatedCities = [...currentData.record.cities, newCity];
 
       // Put the updated data back into the bin
-      const updateRes = await fetch(
-        `${BASE_URL}/b/${BIN_ID}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Master-Key": MASTER_KEY,
-            "X-Access-Key": ACCESS_KEY,
-            // "X-Bin-Versioning": "true" // Uncomment if version control is needed
-          },
-          body: JSON.stringify({ cities: updatedCities }),
-        }
-      );
+      const updateRes = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY,
+          "X-Access-Key": ACCESS_KEY,
+        },
+        body: JSON.stringify({ cities: updatedCities }),
+      });
 
       if (!updateRes.ok) {
         throw new Error("Failed to update the bin");
@@ -172,17 +156,13 @@ function CitiesProvider({ children }) {
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      // Fetch current data from the bin
-      const fetchRes = await fetch(
-        `${BASE_URL}/b/${BIN_ID}`,
-        {
-          method: "GET",
-          headers: {
-            "X-Master-Key": MASTER_KEY,
-            "X-Access-Key": ACCESS_KEY,
-          },
-        }
-      );
+      const fetchRes = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+        method: "GET",
+        headers: {
+          "X-Master-Key": MASTER_KEY,
+          "X-Access-Key": ACCESS_KEY,
+        },
+      });
 
       if (!fetchRes.ok) {
         throw new Error("Failed to fetch current data");
@@ -196,18 +176,15 @@ function CitiesProvider({ children }) {
       );
 
       // Update the bin with the new data
-      const updateRes = await fetch(
-        `${BASE_URL}/b/${BIN_ID}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "X-Master-Key": MASTER_KEY,
-            "X-Access-Key": ACCESS_KEY,
-          },
-          body: JSON.stringify({ cities: updatedCities }),
-        }
-      );
+      const updateRes = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": MASTER_KEY,
+          "X-Access-Key": ACCESS_KEY,
+        },
+        body: JSON.stringify({ cities: updatedCities }),
+      });
 
       if (!updateRes.ok) {
         throw new Error("Failed to update the bin");

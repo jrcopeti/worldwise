@@ -1,6 +1,6 @@
-import { createContext, useId, useLayoutEffect, useReducer } from "react";
-import { useUrlPosition } from "../hooks/useUrlPosition";
+import { createContext, useLayoutEffect, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../hooks/useCities";
 import { useAuth } from "../hooks/useAuth";
 
@@ -64,7 +64,6 @@ function generateRandomId(length) {
 }
 
 function FormProvider({ children }) {
-  const id = useId();
   const { createCity } = useCities();
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
