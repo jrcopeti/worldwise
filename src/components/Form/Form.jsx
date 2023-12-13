@@ -24,6 +24,7 @@ function Form() {
     lat,
     lng,
     handleSubmit,
+    user,
   } = useForm();
 
   if (isLoadingGeocoding) return <Spinner />;
@@ -69,9 +70,11 @@ function Form() {
         />
       </div>
 
+      <input type="hidden" value={user} />
+
       <div className={styles.buttons}>
         <Button type="primary">Add</Button>
-        <BackButton />
+        <BackButton reason="back-form" />
       </div>
     </form>
   );

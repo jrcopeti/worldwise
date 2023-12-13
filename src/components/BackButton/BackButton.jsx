@@ -1,20 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button";
 
-function BackButton() {
+function BackButton({ reason }) {
   const navigate = useNavigate();
 
-  return (
-    <Button
-    type="back"
-    onClick={(e) => {
-      e.preventDefault();
-      navigate(-1);
-    }}
-  >
-    &larr; Back
-  </Button>
-  )
+  if (reason === "back-1")
+    return (
+      <Button
+        type="back"
+        reason="back-1"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(-1);
+        }}
+      >
+        &larr; Back
+      </Button>
+    );
+  if (reason === "back-form")
+    return (
+      <Button
+        reason="back-form"
+        type="back"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate("/app/cities");
+        }}
+      >
+        &larr; Back
+      </Button>
+    );
 }
 
-export default BackButton
+export default BackButton;

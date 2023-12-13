@@ -2,6 +2,7 @@ import { createContext, useLayoutEffect, useReducer } from "react";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useNavigate } from "react-router-dom";
 import { useCities } from "../hooks/useCities";
+import { useAuth } from "../hooks/useAuth";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -11,7 +12,7 @@ export function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
+const BASE_URL = "https://api-bdc.net/data/reverse-geocode";
 
 const FormContext = createContext();
 
@@ -45,6 +46,11 @@ function reducer(state, action) {
         isLoadingGeocoding: false,
         geocodingError: action.payload,
       };
+    case "geocoding/clear-error":
+      return {
+        ...state,
+        geocodingError: "",
+      };
 
     default:
       throw new Error(`Action type ${action.type} is not supported`);
@@ -55,6 +61,7 @@ function FormProvider({ children }) {
   const { createCity } = useCities();
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
+  const { user } = useAuth();
   const [
     {
       isLoadingGeocoding,
@@ -71,11 +78,12 @@ function FormProvider({ children }) {
   useLayoutEffect(
     function () {
       if (!lat || !lng) return;
+      dispatch({ type: "geocoding/clear-error" });
       dispatch({ type: "geocoding/loading" });
       async function fetchCityData() {
         try {
           const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}`
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${import.meta.env.VITE_SOME_KEY}`
           );
           const data = await res.json();
           console.log(data);
@@ -114,6 +122,7 @@ function FormProvider({ children }) {
       date,
       notes,
       position: { lat, lng },
+      user,
     };
     await createCity(newCity);
     navigate("/app/cities");
@@ -133,6 +142,7 @@ function FormProvider({ children }) {
         lat,
         lng,
         navigate,
+        user,
       }}
     >
       {children}

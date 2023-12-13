@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import styles from "./CityItem.module.css";
 import { useCities } from "../../hooks/useCities";
+import styles from "./CitiesInCountryItem.module.css";
 import { useAuth } from "../../hooks/useAuth";
 
 const formatDate = (date) =>
@@ -10,7 +10,7 @@ const formatDate = (date) =>
     year: "numeric",
   }).format(new Date(date));
 
-function CityItem({ city }) {
+function CountryCityItem({ city }) {
   const { currentCity, deleteCity } = useCities();
   const { user: loginUser } = useAuth();
   const { cityName, emoji, date, id, position, user } = city;
@@ -22,9 +22,9 @@ function CityItem({ city }) {
   return (
     <li>
       <Link
-        to={`${id}?lat=${position.lat}&lng=${position.lng}`}
-        className={`${styles.cityItem} ${
-          id === currentCity.id ? styles["cityItem--active"] : ""
+        to={`/app/cities/${id}?lat=${position.lat}&lng=${position.lng}`}
+        className={`${styles.countryCityItem} ${
+          id === currentCity.id ? styles["countryCityItem--active"] : ""
         }`}
       >
         <span className={styles.emoji}>{emoji}</span>
@@ -41,4 +41,4 @@ function CityItem({ city }) {
   );
 }
 
-export default CityItem;
+export default CountryCityItem;

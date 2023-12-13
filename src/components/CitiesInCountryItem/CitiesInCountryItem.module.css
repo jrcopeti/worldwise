@@ -1,6 +1,6 @@
-.cityItem,
-.cityItem:link,
-.cityItem:visited {
+.countryCityItem,
+.countryCityItem:link,
+.countryCityItem:visited {
   display: flex;
   gap: 1.6rem;
   align-items: center;
@@ -8,16 +8,16 @@
   background-color: var(--color-dark--2);
   border-radius: 7px;
   padding: 1rem 2rem;
-  border-left: 5px solid var(--color-brand--2);
+  border-left: 5px solid var(--color-brand--3);
   cursor: pointer;
 
   color: inherit;
   text-decoration: none;
 }
 
-.cityItem--active {
-  border: 2px solid var(--color-brand--2);
-  border-left: 5px solid var(--color-brand--2);
+.countryCityItem--active {
+  border: 2px solid var(--color-brand--3);
+  border-left: 5px solid var(--color-brand--3);
 }
 
 .emoji {
@@ -30,6 +30,12 @@
   font-weight: 600;
   margin-right: auto;
 }
+
+.user  {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 
 .date {
   font-size: 1.5rem;
@@ -51,4 +57,28 @@
 .deleteBtn:hover {
   background-color: var(--color-brand--1);
   color: var(--color-dark--1);
+}
+
+@media only screen and (max-width: 944px) {
+
+  .emoji {
+    font-size: 2.2rem;
+  }
+
+  .name {
+    font-size: 2dvh;
+  }
+
+  .user {
+    font-size: 1.5dvh;
+  }
+
+  .date {
+    font-size: 1.5dvh;
+  }
+
+  .deleteBtn {
+    height: 2.5dvh;
+    font-size: 1.4dvh;
+  }
 }

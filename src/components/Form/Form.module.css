@@ -53,10 +53,16 @@
 
   .row input
    {
-    font-size: 1.4rem;
+    font-size: 1.7dvh;
   }
 
   .row label {
-    font-size: 1.4rem;
+    font-size: 1.7dvh;
+  }
+
+  .flag {
+    font-size: 4dvh;
+    right: 1rem;
+    top: 2rem;
   }
 }

@@ -35,6 +35,12 @@
   font-size: 1.5rem;
 }
 
+.user  {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
 .deleteBtn {
   height: 2rem;
   aspect-ratio: 1;
@@ -51,4 +57,33 @@
 .deleteBtn:hover {
   background-color: var(--color-brand--1);
   color: var(--color-dark--1);
+}
+
+@media only screen and (max-width: 944px) {
+  .cityItem,
+  .cityItem:link,
+  .cityItem:visited {
+
+  }
+
+  .emoji {
+    font-size: 2.2rem;
+  }
+
+  .name {
+    font-size: 2dvh;
+  }
+
+  .user {
+    font-size: 1.5dvh;
+  }
+
+  .date {
+    font-size: 1.5dvh;
+  }
+
+  .deleteBtn {
+    height: 2.5dvh;
+    font-size: 1.4dvh;
+  }
 }

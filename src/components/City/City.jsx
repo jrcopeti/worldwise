@@ -21,10 +21,10 @@ function City() {
     function () {
       getCity(id);
     },
-    [id]
+    [id, getCity]
   );
 
-  const { cityName, emoji, date, notes } = currentCity;
+  const { cityName, emoji, date, notes, user } = currentCity;
 
   if (isLoading) return <Spinner />;
 
@@ -39,16 +39,21 @@ function City() {
         </div>
 
         <div className={styles.row}>
-          <h6>You went to {cityName} on</h6>
+          <h6>{user} went to {cityName} on </h6>
           <p>{formatDate(date || null)}</p>
         </div>
 
         {notes && (
           <div className={styles.row}>
-            <h6>Your notes</h6>
+            <h6>Notes</h6>
             <p>{notes}</p>
           </div>
         )}
+
+        <div className={styles.row}>
+          <h6>Created by</h6>
+          <p>{user}</p>
+        </div>
 
         <div className={styles.row}>
           <h6>Learn more</h6>
@@ -62,7 +67,7 @@ function City() {
         </div>
 
         <div>
-          <BackButton />
+          <BackButton reason="back-1" />
         </div>
       </div>
     )
