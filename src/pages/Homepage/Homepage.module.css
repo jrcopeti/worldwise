@@ -34,6 +34,10 @@
 }
 
 @media only screen and (max-width: 944px) {
+  .homepage {
+    margin: 1rem;
+  }
+
   .homepage h1 {
     font-size: 4dvh;
 

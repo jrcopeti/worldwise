@@ -6,8 +6,7 @@ import styles from "./Login.module.css";
 import PageNav from "../../components/PageNav/PageNav";
 import { useNavigate } from "react-router-dom";
 
- function Login() {
-  // PRE-FILL FOR DEV PURPOSES
+function Login() {
   const [name, setName] = useState("");
 
   const { login, isAuthenticated } = useAuth();
