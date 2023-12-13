@@ -6,7 +6,8 @@ https://worldwise-app-io.netlify.app/
 
 ## Introduction
 
-WorldWise is a platform designed for travelers to share and discover unique travel experiences. This app enables users to explore cities, adding their personal travel notes and insights, check travel stories from others, and find inspiration for their own journeys.
+WorldWise is a platform designed for travelers to share and discover unique travel experiences.
+This app enables users to explore cities on an interactive map, add their personal travel notes and  share insights. Users can also check out travel stories from others and find inspiration for their own journeys.
 
 ## Features
 
