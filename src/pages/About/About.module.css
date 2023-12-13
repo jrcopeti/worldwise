@@ -43,14 +43,14 @@
   }
 
   .about h2 {
-    font-size: 3.2dvh;
+    font-size: 4dvh;
     line-height: 1.2;
     margin-bottom: 2rem;
     margin-left: 2rem;
   }
 
   .about p {
-    font-size: 2dvh;
+    font-size: 3dvh;
     margin-bottom: 2rem;
   }
 }

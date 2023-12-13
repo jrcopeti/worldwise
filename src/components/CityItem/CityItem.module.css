@@ -76,15 +76,15 @@
   }
 
   .name {
-    font-size: 2dvh;
+    font-size: 3dvh;
   }
 
   .user {
-    font-size: 1.5dvh;
+    font-size: 2dvh;
   }
 
   .date {
-    font-size: 1.5dvh;
+    font-size: 2dvh;
   }
 
   .deleteBtn {
