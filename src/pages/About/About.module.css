@@ -36,7 +36,6 @@
 @media only screen and (max-width: 944px) {
   .about {
     margin: 1rem;
- 
   }
 
   .about section {
@@ -55,7 +54,7 @@
   }
 
   .about p {
-    font-size: 2dvh;
+    font-size: 3dvh;
     margin-bottom: 2rem;
   }
 }
