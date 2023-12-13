@@ -2,13 +2,7 @@ import { Link } from "react-router-dom";
 import { useCities } from "../../hooks/useCities";
 import styles from "./CitiesInCountryItem.module.css";
 import { useAuth } from "../../hooks/useAuth";
-
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "numeric",
-    year: "numeric",
-  }).format(new Date(date));
+import { formatDate } from "../../utils/utils";
 
 function CountryCityItem({ city }) {
   const { currentCity, deleteCity } = useCities();

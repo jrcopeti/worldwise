@@ -4,14 +4,7 @@ import { useCities } from "../../hooks/useCities";
 import Spinner from "../Spinner/Spinner";
 import styles from "./City.module.css";
 import BackButton from "../BackButton/BackButton";
-
-const formatDate = (date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
+import { formatDateLong } from "../../utils/utils";
 
 function City() {
   const { id } = useParams();
@@ -39,8 +32,10 @@ function City() {
         </div>
 
         <div className={styles.row}>
-          <h6>{user} went to {cityName} on </h6>
-          <p>{formatDate(date || null)}</p>
+          <h6>
+            {user} went to {cityName} on{" "}
+          </h6>
+          <p>{formatDateLong(date || null)}</p>
         </div>
 
         {notes && (
