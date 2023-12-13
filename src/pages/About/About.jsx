@@ -13,8 +13,9 @@ function About() {
         <div>
           <h2>About WorldWise</h2>
           <p>
-            WorldWise is a travel app that allows you to track your trips to every city you have been, get inspired by other travellers, and
-            share your own unique experiences.
+            WorldWise is a travel app that allows you to track your trips to
+            every city you have been. Share your unique experiences, or get
+            inspired by other travellers.
           </p>
         </div>
       </section>

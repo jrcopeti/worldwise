@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import styles from "./PageNav.module.css";
 import Logo from "../Logo/Logo";
 import { useAuth } from "../../hooks/useAuth";
-import Button from "../Button/Button";
 import Logout from "../Logout/Logout";
 
 function PageNav() {
