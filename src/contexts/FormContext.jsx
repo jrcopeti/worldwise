@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../hooks/useCities";
 import { useAuth } from "../hooks/useAuth";
-import { convertToEmoji } from "../utils/utils";
+import { convertToEmoji, generateRandomId } from "../utils/utils";
 
 const BASE_URL = "https://api-bdc.net/data/reverse-geocode";
 const REVERSE_GEOCODING_KEY = import.meta.env.VITE_REVERSE_GEOCODING_KEY;
@@ -49,11 +49,6 @@ function reducer(state, action) {
     default:
       throw new Error(`Action type ${action.type} is not supported`);
   }
-}
-
-function generateRandomId(length) {
-  const multiplier = Math.pow(10, length - 1);
-  return Math.floor(Math.random() * 9 * multiplier) + multiplier;
 }
 
 function FormProvider({ children }) {
