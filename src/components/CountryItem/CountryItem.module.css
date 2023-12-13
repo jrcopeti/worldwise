@@ -21,6 +21,7 @@
 .countryItem:hover {
   background-color: var(--color-dark--1);
   transform: translateY(-3px);
+  transition: all 0.2s;
 }
 
 .countryItem:focus {
