@@ -34,6 +34,10 @@
 }
 
 @media only screen and (max-width: 944px) {
+  .about {
+    margin: 1rem;
+  }
+
   .about section {
     display: flex;
     flex-direction: column;
@@ -50,7 +54,7 @@
   }
 
   .about p {
-    font-size: 3dvh;
+    font-size: 2dvh;
     margin-bottom: 2rem;
   }
 }

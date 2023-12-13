@@ -34,6 +34,10 @@
 }
 
 @media only screen and (max-width: 944px) {
+
+  .howToUse {
+    margin: 1rem;
+  }
   .howToUse section {
     display: flex;
     flex-direction: column-reverse;
@@ -50,7 +54,7 @@
   }
 
   .howToUse p {
-    font-size: 3dvh;
+    font-size: 2dvh;
     margin-bottom: 2rem;
     margin-left: 2rem;
   }
