@@ -13,6 +13,7 @@ export function convertToEmoji(countryCode) {
 }
 
 const BASE_URL = "https://api-bdc.net/data/reverse-geocode";
+const REVERSE_GEOCODING_KEY = import.meta.env.VITE_REVERSE_GEOCODING_KEY;
 
 const FormContext = createContext();
 
@@ -62,7 +63,6 @@ function generateRandomId(length) {
   return Math.floor(Math.random() * 9 * multiplier) + multiplier;
 }
 
-
 function FormProvider({ children }) {
   const id = useId();
   const { createCity } = useCities();
@@ -90,7 +90,7 @@ function FormProvider({ children }) {
       async function fetchCityData() {
         try {
           const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${import.meta.env.VITE_REVERSE_GEOCODING_KEY}`
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${REVERSE_GEOCODING_KEY}`
           );
           const data = await res.json();
           console.log(data);
@@ -121,7 +121,6 @@ function FormProvider({ children }) {
     e.preventDefault();
 
     if (!cityName || !date) return;
-    
 
     const newCity = {
       cityName,
@@ -129,12 +128,12 @@ function FormProvider({ children }) {
       emoji,
       date,
       notes,
-      position: { lat, lng},
+      position: { lat, lng },
       user,
       id: generateRandomId(5),
     };
     await createCity(newCity);
-    console.log(newCity)
+    console.log(newCity);
     navigate("/app/cities");
   }
   return (
