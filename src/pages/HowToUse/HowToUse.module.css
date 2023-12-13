@@ -37,6 +37,8 @@
 
   .howToUse {
     margin: 1rem;
+
+
   }
   .howToUse section {
     display: flex;
@@ -51,6 +53,7 @@
     line-height: 1.2;
     margin-bottom: 2rem;
     margin-left: 2rem;
+
   }
 
   .howToUse p {
