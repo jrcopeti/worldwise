@@ -22,6 +22,12 @@ const AppLayout = lazy(() => import("./pages/AppLayout/AppLayout"));
 const PageNotFound = lazy(() => import("./pages/PageNotFound/PageNotFound"));
 
 function App() {
+
+  console.log(`${import.meta.env.VITE_REVERSE_GEOCODING_KEY}`)
+  console.log(`${import.meta.env.VITE_BIN_ID}`)
+  console.log(import.meta.env.VITE_MASTER_KEY)
+  console.log(import.meta.env.VITE_X_ACCESS_KEY)
+
   return (
     <AuthProvider>
       <CitiesProvider>

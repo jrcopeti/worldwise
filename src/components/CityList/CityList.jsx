@@ -5,7 +5,7 @@ import styles from "./CityList.module.css";
 import { useCities } from "../../hooks/useCities";
 
 function CityList() {
-  const { cities, isLoading} = useCities();
+  const { cities, isLoading } = useCities();
 
   if (isLoading) return <Spinner />;
 
@@ -14,7 +14,9 @@ function CityList() {
       <Message message="Add your first city by clicking on the city on the map" />
     );
 
-    const sortedCities = cities.sort((a, b) => a.cityName.localeCompare(b.cityName))
+  const sortedCities = cities
+    .filter((city) => typeof city.cityName === "string")
+    .sort((a, b) => a.cityName.localeCompare(b.cityName));
 
   return (
     <ul className={styles.cityList}>

@@ -1,4 +1,4 @@
-import { createContext, useLayoutEffect, useReducer } from "react";
+import { createContext, useId, useLayoutEffect, useReducer } from "react";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useNavigate } from "react-router-dom";
 import { useCities } from "../hooks/useCities";
@@ -57,7 +57,14 @@ function reducer(state, action) {
   }
 }
 
+function generateRandomId(length) {
+  const multiplier = Math.pow(10, length - 1);
+  return Math.floor(Math.random() * 9 * multiplier) + multiplier;
+}
+
+
 function FormProvider({ children }) {
+  const id = useId();
   const { createCity } = useCities();
   const navigate = useNavigate();
   const [lat, lng] = useUrlPosition();
@@ -83,7 +90,7 @@ function FormProvider({ children }) {
       async function fetchCityData() {
         try {
           const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${import.meta.env.VITE_SOME_KEY}`
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${import.meta.env.VITE_REVERSE_GEOCODING_KEY}`
           );
           const data = await res.json();
           console.log(data);
@@ -114,6 +121,7 @@ function FormProvider({ children }) {
     e.preventDefault();
 
     if (!cityName || !date) return;
+    
 
     const newCity = {
       cityName,
@@ -121,10 +129,12 @@ function FormProvider({ children }) {
       emoji,
       date,
       notes,
-      position: { lat, lng },
+      position: { lat, lng},
       user,
+      id: generateRandomId(5),
     };
     await createCity(newCity);
+    console.log(newCity)
     navigate("/app/cities");
   }
   return (

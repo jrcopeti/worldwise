@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { useCities } from "../../hooks/useCities";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useUrlPosition } from "../../hooks/useUrlPosition";
+import { map } from "leaflet";
 
 function Map() {
   const { cities } = useCities();
@@ -26,6 +27,8 @@ function Map() {
   } = useGeolocation();
 
   const [mapLat, mapLng] = useUrlPosition();
+
+  console.log("mapLat", mapLat, "mapLng", mapLng);
 
   useEffect(
     function () {
@@ -41,6 +44,9 @@ function Map() {
     },
     [geolocationPosition]
   );
+
+    console.log(cities.map((city)=> [city.position.lat, city.position.lng]))
+
 
   return (
     <div className={styles.mapContainer}>

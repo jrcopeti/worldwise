@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { createContext, useEffect, useReducer } from "react";
 
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://api.jsonbin.io/v3";
 
 const CitiesContext = createContext();
 
@@ -56,10 +56,19 @@ function CitiesProvider({ children }) {
     async function fetchCities() {
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities`);
+        const res = await fetch(
+          `${BASE_URL}/b/${import.meta.env.VITE_BIN_ID}`,
+          {
+            method: "GET",
+            headers: {
+              "X-Master-Key": "$2a$10$6sbAeKB.oYZke0TvQSOTo.ejld21yuCcdbXEoHiAJjvtnsKhbmyIO",
+              "X-Access-Key": "$2a$10$GGJRcHwjZu9gyNjaJoX6euSB13k.x2JVQaPD.mUiKk8ayireZVtlu",
+            },
+          }
+        );
         const data = await res.json();
-        dispatch({ type: "cities/loaded", payload: data });
-        console.log(data)
+        dispatch({ type: "cities/loaded", payload: data.record.cities });
+        console.log(data);
       } catch {
         dispatch({
           type: "rejected",
@@ -75,11 +84,24 @@ function CitiesProvider({ children }) {
       if (Number(id) === currentCity.id) return;
       dispatch({ type: "loading" });
       try {
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
+        const res = await fetch(
+          `${BASE_URL}/b/${import.meta.env.VITE_BIN_ID}`,
+          {
+            method: "GET",
+            headers: {
+              "X-Master-Key": "$2a$10$6sbAeKB.oYZke0TvQSOTo.ejld21yuCcdbXEoHiAJjvtnsKhbmyIO",
+              "X-Access-Key": "$2a$10$GGJRcHwjZu9gyNjaJoX6euSB13k.x2JVQaPD.mUiKk8ayireZVtlu",
+            },
+          }
+        );
+
         const data = await res.json();
-        dispatch({ type: "city/loaded", payload: data });
-        console.log(data)
-      } catch {
+        const city = data.record.cities.find(city => city.id === Number(id));
+
+        dispatch({ type: "city/loaded", payload: city });
+        console.log(city);
+      } catch (error) {
+        console.error(error);
         dispatch({
           type: "rejected",
           payload: "There was an error loading the city...",
@@ -89,17 +111,49 @@ function CitiesProvider({ children }) {
     [currentCity.id]
   );
 
+
   async function createCity(newCity) {
     dispatch({ type: "loading" });
     try {
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: { "Content-Type": "application/json" },
+      // Fetch current data from the bin
+      const fetchRes = await fetch(`${BASE_URL}/b/${import.meta.env.VITE_BIN_ID}`, {
+        method: 'GET',
+        headers: {
+          "X-Master-Key": "$2a$10$6sbAeKB.oYZke0TvQSOTo.ejld21yuCcdbXEoHiAJjvtnsKhbmyIO",
+          "X-Access-Key": "$2a$10$GGJRcHwjZu9gyNjaJoX6euSB13k.x2JVQaPD.mUiKk8ayireZVtlu",
+        }
       });
-      const data = await res.json();
-      dispatch({ type: "city/created", payload: data });
-    } catch {
+
+      if (!fetchRes.ok) {
+        throw new Error("Failed to fetch current data");
+      }
+
+      const currentData = await fetchRes.json();
+
+      // Update the data with the new city
+      const updatedCities = [...currentData.record.cities, newCity];
+
+      // Put the updated data back into the bin
+      const updateRes = await fetch(`${BASE_URL}/b/${import.meta.env.VITE_BIN_ID}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+          "X-Master-Key": "$2a$10$6sbAeKB.oYZke0TvQSOTo.ejld21yuCcdbXEoHiAJjvtnsKhbmyIO",
+          "X-Access-Key": "$2a$10$GGJRcHwjZu9gyNjaJoX6euSB13k.x2JVQaPD.mUiKk8ayireZVtlu",
+          // "X-Bin-Versioning": "true" // Uncomment if version control is needed
+        },
+        body: JSON.stringify({ cities: updatedCities }),
+      });
+
+      if (!updateRes.ok) {
+        throw new Error("Failed to update the bin");
+      }
+
+      const updatedData = await updateRes.json();
+
+      dispatch({ type: "city/created", payload: updatedData.record.cities });
+    } catch (error) {
+      console.error("Error creating city:", error);
       dispatch({
         type: "rejected",
         payload: "There was an error creating the city...",
@@ -107,12 +161,18 @@ function CitiesProvider({ children }) {
     }
   }
 
+
   async function deleteCity(id) {
     dispatch({ type: "loading" });
     try {
-      await fetch(`${BASE_URL}/cities/${id}`, {
+      await fetch(`${BASE_URL}/b/${import.meta.env.VITE_BIN_ID}`, {
         method: "DELETE",
+        headers: {
+          "X-Master-Key": "$2a$10$6sbAeKB.oYZke0TvQSOTo.ejld21yuCcdbXEoHiAJjvtnsKhbmyIO",
+          "X-Access-Key": "$2a$10$GGJRcHwjZu9gyNjaJoX6euSB13k.x2JVQaPD.mUiKk8ayireZVtlu",
+        },
       });
+
       dispatch({ type: "city/deleted", payload: id });
     } catch {
       dispatch({
