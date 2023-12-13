@@ -47,6 +47,7 @@ function Form() {
             dispatch({ type: "cityname", payload: e.target.value })
           }
           value={cityName}
+          required
         />
         <span className={styles.flag}>{emoji}</span>
       </div>
@@ -58,6 +59,7 @@ function Form() {
           onChange={(date) => dispatch({ type: "date", payload: date })}
           selected={date}
           dateFormat="dd/MM/yyyy"
+          required
         />
       </div>
 

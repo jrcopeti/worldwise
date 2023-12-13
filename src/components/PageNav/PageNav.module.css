@@ -20,6 +20,15 @@
   font-weight: 600;
 }
 
+.nav a:hover {
+  color: var(--color-brand--2);
+}
+
+.nav a:focus {
+  outline: none;
+  border: 1px solid var(--color-brand--1);
+}
+
 /* CSS Modules feature */
 .nav a:global(.active) {
   color: var(--color-brand--2);
@@ -33,16 +42,15 @@ a.ctaLink:visited {
   border-radius: 7px;
 }
 
+a.ctaLink:hover {
+  opacity: 0.8;
+}
+
 @media only screen and (max-width: 944px) {
   .nav {
     flex-direction: column;
-
     gap: 2rem;
   }
-
-  .nav ul {
-  }
-
   .nav a:link,
   .nav a:visited {
     font-size: 1.6dvh;
