@@ -2,7 +2,7 @@
 
 https://worldwise-app-io.netlify.app/
 
-![Screenshot](./public/screenshot.png)
+![Screenshot](./src/assets/screenshot.png)
 
 ## Introduction
 

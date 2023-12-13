@@ -1,5 +1,4 @@
 import { useCities } from "../../hooks/useCities";
-
 import Spinner from "../Spinner/Spinner";
 import CountryItem from "../CountryItem/CountryItem";
 import Message from "../Message/Message";
@@ -18,10 +17,10 @@ function CountryList() {
       return [...arr, { country: city.country, emoji: city.emoji }];
     else return arr;
   }, []);
-  
 
-  const sortedCountries = countries.sort((a, b) => a.country.localeCompare(b.country))
-  console.log(sortedCountries)
+  const sortedCountries = countries.sort((a, b) =>
+    a.country.localeCompare(b.country)
+  );
 
   return (
     <ul className={styles.countryList}>

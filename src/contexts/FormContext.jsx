@@ -3,14 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../hooks/useCities";
 import { useAuth } from "../hooks/useAuth";
-
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
+import { convertToEmoji } from "../utils/utils";
 
 const BASE_URL = "https://api-bdc.net/data/reverse-geocode";
 const REVERSE_GEOCODING_KEY = import.meta.env.VITE_REVERSE_GEOCODING_KEY;
@@ -132,9 +125,9 @@ function FormProvider({ children }) {
       id: generateRandomId(5),
     };
     await createCity(newCity);
-    console.log(newCity);
     navigate("/app/cities");
   }
+
   return (
     <FormContext.Provider
       value={{

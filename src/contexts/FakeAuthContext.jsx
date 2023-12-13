@@ -1,7 +1,5 @@
 import { createContext, useReducer } from "react";
 
-export { AuthContext, AuthProvider };
-
 const AuthContext = createContext();
 
 const initialState = {
@@ -48,3 +46,5 @@ function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
+
+export { AuthContext, AuthProvider };

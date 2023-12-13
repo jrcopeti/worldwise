@@ -30,6 +30,20 @@ function BackButton({ reason }) {
         &larr; Back
       </Button>
     );
+
+    if (reason === "home")
+    return (
+      <Button
+        reason="home"
+        type="back"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate("/");
+        }}
+      >
+        &larr; Back
+      </Button>
+    );
 }
 
 export default BackButton;
