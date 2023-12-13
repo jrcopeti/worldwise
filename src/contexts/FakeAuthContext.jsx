@@ -22,16 +22,24 @@ function reducer(state, action) {
 }
 
 function AuthProvider({ children }) {
+  const savedUser = sessionStorage.getItem("user");
+
+  if (savedUser) {
+    initialState.user = JSON.parse(savedUser);
+    initialState.isAuthenticated = true;
+  }
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
   function login(name) {
+    sessionStorage.setItem("user", JSON.stringify(name));
     dispatch({ type: "login", payload: name });
   }
 
   function logout() {
+    sessionStorage.removeItem("user");
     dispatch({ type: "logout" });
   }
   return (
