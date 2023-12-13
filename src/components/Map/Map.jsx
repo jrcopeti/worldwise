@@ -1,5 +1,5 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
-import Button from "../Button/Button";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import {
   MapContainer,
@@ -10,14 +10,16 @@ import {
   useMapEvents,
 } from "react-leaflet";
 
-import styles from "./Map.module.css";
-import { useEffect, useState } from "react";
 import { useCities } from "../../hooks/useCities";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import { useUrlPosition } from "../../hooks/useUrlPosition";
 
+import Button from "../Button/Button";
+import styles from "./Map.module.css";
+
 function Map() {
   const { cities } = useCities();
+  const navigate = useNavigate();
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
   const {
     isLoading: isLoadingPosition,
@@ -42,6 +44,10 @@ function Map() {
     [geolocationPosition]
   );
 
+  const handleMarkerClick = (cityId, lat, lng) => {
+    navigate(`/app/cities/${cityId}?lat=${lat}&lng=${lng}`);
+  };
+
   return (
     <div className={styles.mapContainer}>
       {!geolocationPosition && (
@@ -50,9 +56,8 @@ function Map() {
         </Button>
       )}
       <MapContainer
-        // center={[mapLat, mapLng]}
         center={mapPosition}
-        zoom={6}
+        zoom={5}
         scrollWheelZoom={true}
         className={styles.map}
       >
@@ -60,13 +65,26 @@ function Map() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
+
         {cities.map((city) => (
           <Marker
             position={[city.position.lat, city.position.lng]}
             key={city.id}
+            eventHandlers={{
+              click: () =>
+                handleMarkerClick(
+                  city.id,
+                  city.position.lat,
+                  city.position.lng
+                ),
+            }}
           >
             <Popup>
-              <span>{city.emoji}</span> <span>{city.cityName}</span>
+              <span>{city.emoji}</span>
+              <span>{city.cityName} </span>
+              <span>
+                by <strong>{city.user}</strong>
+              </span>
             </Popup>
           </Marker>
         ))}

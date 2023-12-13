@@ -1,6 +1,6 @@
 import { createContext, useLayoutEffect, useReducer } from "react";
-import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useNavigate } from "react-router-dom";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../hooks/useCities";
 import { useAuth } from "../hooks/useAuth";
 
@@ -13,6 +13,7 @@ export function convertToEmoji(countryCode) {
 }
 
 const BASE_URL = "https://api-bdc.net/data/reverse-geocode";
+const REVERSE_GEOCODING_KEY = import.meta.env.VITE_REVERSE_GEOCODING_KEY;
 
 const FormContext = createContext();
 
@@ -57,6 +58,11 @@ function reducer(state, action) {
   }
 }
 
+function generateRandomId(length) {
+  const multiplier = Math.pow(10, length - 1);
+  return Math.floor(Math.random() * 9 * multiplier) + multiplier;
+}
+
 function FormProvider({ children }) {
   const { createCity } = useCities();
   const navigate = useNavigate();
@@ -83,7 +89,7 @@ function FormProvider({ children }) {
       async function fetchCityData() {
         try {
           const res = await fetch(
-            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${import.meta.env.VITE_SOME_KEY}`
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}&localityLanguage=en&key=${REVERSE_GEOCODING_KEY}`
           );
           const data = await res.json();
           console.log(data);
@@ -123,8 +129,10 @@ function FormProvider({ children }) {
       notes,
       position: { lat, lng },
       user,
+      id: generateRandomId(5),
     };
     await createCity(newCity);
+    console.log(newCity);
     navigate("/app/cities");
   }
   return (
