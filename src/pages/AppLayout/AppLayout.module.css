@@ -10,5 +10,6 @@
   /* Styles for screens smaller than 600px */
   .app {
     display: block;
+    padding: 1rem;
   }
 }

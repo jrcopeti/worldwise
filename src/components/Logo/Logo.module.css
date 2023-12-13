@@ -1,5 +1,7 @@
 .logo {
   height: 5.2rem;
+  width: auto;
+  object-fit: contain;
 }
 
 .logo:focus {
