@@ -33,6 +33,15 @@
   cursor: pointer;
 }
 
+.user button:hover {
+  opacity: 0.8;
+}
+
+.user button:focus {
+  outline: none;
+  border: 1px solid var(--color-brand--1);
+}
+
 @media only screen and (max-width: 944px) {
 
   .user {

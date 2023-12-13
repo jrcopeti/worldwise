@@ -15,6 +15,16 @@
   text-decoration: none;
 }
 
+.countryCityItem:hover {
+  background-color: var(--color-dark--1);
+  transform: translateY(-3px);
+}
+
+.countryCityItem:focus {
+  outline: none;
+  border: 1px solid var(--color-brand--1);
+} 
+
 .countryCityItem--active {
   border: 2px solid var(--color-brand--3);
   border-left: 5px solid var(--color-brand--3);

@@ -25,6 +25,11 @@
   gap: 0.5rem;
 }
 
+.row input:focus {
+  outline: none;
+  border: 1px solid var(--color-brand--1);
+}
+
 @media only screen and (max-width: 944px) {
   .form {
 

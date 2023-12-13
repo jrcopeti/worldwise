@@ -14,10 +14,10 @@ export default function Homepage() {
         </h1>
         <h2>
           A world map that tracks your experiences in every city you have been.
-         
+
         </h2>
         <Link to="/login" className="cta">
-          Start Tracking Now
+          Get Started
         </Link>
       </section>
     </main>

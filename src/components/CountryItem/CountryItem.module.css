@@ -18,6 +18,16 @@
   text-decoration: none;
 }
 
+.countryItem:hover {
+  background-color: var(--color-dark--1);
+  transform: translateY(-3px);
+}
+
+.countryItem:focus {
+  outline: none;
+  border: 1px solid var(--color-brand--2);
+}
+
 .countryItem span:first-child {
   font-size: 3rem;
   line-height: 1;
