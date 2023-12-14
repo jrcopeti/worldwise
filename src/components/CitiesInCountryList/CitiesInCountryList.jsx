@@ -15,7 +15,7 @@ function CountryCityList() {
 
   return (
     <>
-      <h1>Cities in {formatCountryName(country)}</h1>
+      <h1>Places in {formatCountryName(country)}</h1>
       <ul className={styles.countryCityList}>
         {citiesInCountry.map((city) => (
           <CitiesInCountryItem city={city} key={city.id} />

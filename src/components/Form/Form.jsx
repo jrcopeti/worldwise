@@ -53,7 +53,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        <label htmlFor="date">When did you go? (Click to change)</label>
         <DatePicker
           id="date"
           onChange={(date) => dispatch({ type: "date", payload: date })}

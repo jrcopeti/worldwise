@@ -45,3 +45,11 @@
   font-size: 1.6rem;
   color: var(--color-brand--1);
 }
+
+@media only screen and (max-width: 944px) {
+  .city {
+    padding: 2rem;
+    max-height: 100%;
+    width: 95%;
+  }
+}
