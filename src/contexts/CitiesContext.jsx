@@ -89,10 +89,8 @@ function CitiesProvider({ children }) {
             "X-Access-Key": ACCESS_KEY,
           },
         });
-
         const data = await res.json();
         const city = data.record.cities.find((city) => city.id === Number(id));
-
         dispatch({ type: "city/loaded", payload: city });
       } catch (error) {
         console.error(error);
@@ -120,11 +118,11 @@ function CitiesProvider({ children }) {
         throw new Error("Failed to fetch current data");
       }
       const currentData = await fetchRes.json();
-      
+
       // Update the data with the new city
       const updatedCities = [...currentData.record.cities, newCity];
-      // Put the updated data back into the bin
 
+      // Put the updated data back into the bin
       const updateRes = await fetch(`${BASE_URL}/b/${BIN_ID}`, {
         method: "PUT",
         headers: {
