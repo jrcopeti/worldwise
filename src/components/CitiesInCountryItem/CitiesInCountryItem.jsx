@@ -3,9 +3,10 @@ import { useCities } from "../../hooks/useCities";
 import styles from "./CitiesInCountryItem.module.css";
 import { useAuth } from "../../hooks/useAuth";
 import { formatDate } from "../../utils/utils";
+import Message from "../Message/Message";
 
 function CountryCityItem({ city }) {
-  const { currentCity, deleteCity } = useCities();
+  const { currentCity, deleteCity, error } = useCities();
   const { user: loginUser } = useAuth();
   const { cityName, emoji, date, id, position, user } = city;
 
@@ -13,6 +14,9 @@ function CountryCityItem({ city }) {
     e.preventDefault();
     deleteCity(id);
   }
+
+  if (error) return <Message message={error} />;
+  
   return (
     <li>
       <Link

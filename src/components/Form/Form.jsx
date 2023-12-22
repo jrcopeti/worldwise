@@ -11,7 +11,7 @@ import { useCities } from "../../hooks/useCities";
 import { useForm } from "../../hooks/useForm";
 
 function Form() {
-  const { isLoading } = useCities();
+  const { isLoading, error } = useCities();
 
   const {
     isLoadingGeocoding,

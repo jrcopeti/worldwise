@@ -5,10 +5,13 @@ import Spinner from "../Spinner/Spinner";
 import styles from "./City.module.css";
 import BackButton from "../BackButton/BackButton";
 import { formatDateLong } from "../../utils/utils";
+import Message from "../Message/Message";
 
 function City() {
   const { id } = useParams();
-  const { getCity, currentCity, isLoading } = useCities();
+  const { getCity, currentCity, isLoading, error } = useCities();
+  const { cityName, emoji, date, notes, user } = currentCity;
+
 
   useEffect(
     function () {
@@ -17,9 +20,10 @@ function City() {
     [id, getCity]
   );
 
-  const { cityName, emoji, date, notes, user } = currentCity;
 
   if (isLoading) return <Spinner />;
+
+  if (error) return <Message message={error} />;
 
   return (
     currentCity.id === +id && (

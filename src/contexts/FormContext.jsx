@@ -96,7 +96,7 @@ function FormProvider({ children }) {
             payload: convertToEmoji(data.countryCode),
           });
         } catch (err) {
-          dispatch({ type: "geocoding/error", payload: err.message });
+          dispatch({ type: "geocoding/error", payload: "There was an error fetching the city..."});
         }
       }
       fetchCityData();
