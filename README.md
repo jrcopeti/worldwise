@@ -20,6 +20,6 @@ This app enables users to explore cities on an interactive map, add their person
 ### Technical Highlights
 - **State Management**: Implemented using React's Context API and the useReducer hook for efficient global state management.
 - **React Router**: Library to ensure seamless transitions between different components and pages.
-- **Cloud Database Integration**: Utilizes JSON Bin for robust, cloud-based data storage and retrieval.
+- **API Integration**: Utilizes JSON Bin for data storage and retrieval.
 - **Map Integration with Leaflet**: Incorporates the Leaflet library for interactive map features, allowing users to visually explore different locations.
 - **Performance Optimization**: Leverages React's lazy loading and Suspense for improved load times and enhanced user experience, particularly important for data-intensive operations.
